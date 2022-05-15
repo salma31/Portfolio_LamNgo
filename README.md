@@ -29,8 +29,8 @@ I wanted to find out if state-of-the-art algorithms outperform baseline algorith
 | Linear Regression | 0.3735 | 0.2478 |
 | XGBoost | 0.2952 | 0.1684 |
 | Vanilla LSTM |  0.2838 | 0.2415 |
-|  DA-RNN | 0.1962 | 0.1372 |
-| Informer | 0.1926 | 0.1302 |
+|  DA-RNN<sup>[3](#myfootnote3)</sup> | 0.1962 | 0.1372 |
+| Informer<sup>[4](#myfootnote4)</sup> | 0.1926 | 0.1302 |
 
 
 ## References
