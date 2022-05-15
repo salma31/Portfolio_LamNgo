@@ -1,0 +1,379 @@
+<html>
+
+  <head>
+        <title>Music Streaming App</title>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <style>
+            *, ::after, ::before {
+              box-sizing: inherit;
+              background-color: #191414;
+              color: rgb(255, 255, 255);
+            }
+            .music {
+              padding: 2rem 1rem;
+              margin-bottom: 2rem;
+              border-radius: .3rem;
+              border-bottom: 0;
+              text-align: center;
+              align-content: center;
+              align-items: center;
+              padding: 4rem 2rem;
+            }
+            .music button {
+              color: #fff;
+              background-color: rgb(6, 105, 138);
+              border-color: rgb(6, 105, 138);
+              padding: 5px;
+              border-radius: 5px;
+              margin: 5px;
+            }
+            .music .query {
+              text-align: left;
+              border: 3px dotted #e9ecef;
+              padding: 1.5rem 1.2rem;
+              margin-left: auto;
+              margin-right: auto;
+			  max-width: 810px;
+              min-height: 199px;
+              border-radius: .3rem;
+            }
+            .music .query button:hover{
+              cursor: pointer;
+              background-color: #73abff;
+            }
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+
+}
+
+		/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 25px;
+  color: #000000	
+}
+
+		/* Change background color of buttons on hover */
+		.tab button:hover {
+		  background-color: #ddd;
+		}
+
+		/* Create an active/current tablink class */
+		.tab button.active {
+		  background-color: #ccc;
+		}
+
+		/* Style the tab content */
+		.tabcontent {
+		  display: none;
+		  padding: 6px 12px;
+		  border: 1px solid #ccc;
+		  border-top: none;
+
+		}
+        </style>
+
+  </head>
+  <body>
+    <div class="tab">
+  	<button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
+  	<button class="tablinks" onclick="openTab(event, 'GetAll')">GetAllDataFromSQL</button>
+  	<button class="tablinks" onclick="openTab(event, 'AddSong')">Add Song to Playlist</button>
+	  	<button class="tablinks" onclick="openTab(event, 'Elaborate2')">Elaborate</button>
+			<button class="tablinks" onclick="openTab(event, 'MongoGetAll')">GetAllDataFromMongoDB</button>
+    </div>
+
+<div id="Home" class="tabcontent">
+    <div class="music"> 
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/768px-Spotify_logo_without_text.svg.png" style="width: 10vw" />
+      <h1>Welcome to our Music App powered by docker!</h1>
+      <p>This is a simple database about songs, artists and albums. There is a SQL and a MongoDB database. This page is used to initialize the databases.</p>
+      <div class="query">
+        <p>1. Click to initialize the SQL database.</p>
+          <button type="submit" onclick="queryServer('init')">Initialize and fill SQL database</button>
+        <p>2. Click to transfer the data from the SQL database to MongoDB.</p>
+		  <button type="MongoTransfer" onclick="transferToMongo()">Transfer data from the SQL database to MongoDB</button>
+        <h3>Server response</h3>
+        <div id="response"></div>
+      </div>
+	</div>
+</div>
+
+
+<div id="GetAll" class="tabcontent">
+    <div class="music"> 
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/768px-Spotify_logo_without_text.svg.png" style="width: 10vw" />
+      <h1>Select * from ...</h1>
+      <p>Here you get all entries from a table of your choice</p>
+      <div class="query">
+        <p>You can enter the words "users", "songs", "playlists", "playlistSongs" or "albums" into the box and press GET</p>
+        <div>
+          <button type="submit" onclick="queryServer2(2)">GET</button>
+          <input id="path" type="text">
+        </div>
+        <h3>Server response</h3>
+        <div id="response2">
+        </div>
+		  <div class="query">
+        <p>Here is some help to read the output:</p>
+		<p>User(email, firstname, lastname)</p>
+		<p> Album(title, releaseDate)</p>
+		<p> Artist (name, artistGenre)</p>
+		<p> Song (trackNumber, songTitle, songLengthSeconds, albumId)</p>
+		<p> Playlist (playListId, playlistTitle, owner)</p>
+		<p> PlaylistSong (playListId, trackNumber, albumId)</p>
+		</div>
+      </div>
+    </div>
+</div>
+
+
+
+<div id="MongoGetAll" class="tabcontent">
+    <div class="music"> 
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/768px-Spotify_logo_without_text.svg.png" style="width: 10vw" />
+      <h1>Find a collection in MongoDB</h1>
+      <p>Here you get all entries from a table of your choice</p>
+      <div class="query">
+        <p>You can enter "mongoUsers" or "mongoSongs" and press GET</p>
+        <div>
+          <button type="submit" onclick="queryServer3(8)">GET</button>
+          <input id="path2" type="text">
+        </div>
+        <h3>Server response</h3>
+        <div id="response8">
+
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+<div id="AddSong" class="tabcontent">
+    <div class="music"> 
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/768px-Spotify_logo_without_text.svg.png" style="width: 10vw" />
+      <h1>You can add a song here!</h1>
+      <p></p>
+      <div class="query">
+        <p>Here you get all entries from a table that you can select</p>
+        <div>
+          <button type="submit" onclick="searchSong()">Search Song</button>
+          <input id="albumid" type="text" placeholder = "albumid">
+          <input id="tracknr" type="text" placeholder = "tracknr">
+        </div>
+        <h3>Server response</h3>
+        <div id="response3">
+
+        </div>
+		<div id="userDiv">
+			<button type="submit" onclick="getPlaylists()">Search user's Playlist</button>
+			<input id="userEmail" type="text" placeholder = "userEmail">
+		</div>
+		<h3>Server response</h3>
+		<div id="response4">
+
+        </div>
+		<div id="playListDiv">
+			<button type="submit" onclick="addSongToPlaylist()">Add Song to Playlist</button>
+			<input id="albumidPL" type="text" placeholder = "albumid">
+			<input id="tracknrPL" type="text" placeholder = "tracknr">
+			<input id="playlistIdPL" type="text" placeholder = "playlistId">
+		</div>
+		<h3>Server response</h3>
+		<div id="response5">
+
+        </div>
+      </div>
+    </div>
+</div>
+
+<div id="Elaborate2" class="tabcontent">
+    <div class="music"> 
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/768px-Spotify_logo_without_text.svg.png" style="width: 10vw" />
+      <h1>ElaborateUseCase</h1>
+      <p>The number of playlists owned by a given user that contain songs from a specific album is reported.</p>
+      <div class="query">
+        <p>Please enter albumid and user</p>
+        <div>
+          <button type="submit" onclick="Elaborate2()">GET</button>
+          <input id="albumidEU2" type="text" placeholder = "albumid">
+		  <input id="emailEU2" type="text" placeholder = "email">
+        </div>
+        <h3>Server response</h3>
+        <div id="response6">
+
+        </div>
+      </div>
+    </div>
+</div>
+
+    <script type="text/javascript">
+
+    function newUser() {
+        const Http = new XMLHttpRequest();
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const email = document.getElementById('email').value;
+        const url = "/api/newUser?firstName=" + firstName + "&lastName=" + lastName + "&email=" + email;
+        Http.open("GET", url);
+        Http.send();
+        Http.onreadystatechange = (e) => {
+                document.getElementById('response7').innerHTML = Http.responseText;
+        }
+
+    }
+
+
+    function Elaborate1() {
+        const Http = new XMLHttpRequest();
+        const artistName = document.getElementById('artistName').value;
+        const url = "/api/elaborateUseCase1?artistName=" + artistName;
+        Http.open("GET", url);
+        Http.send();
+        Http.onreadystatechange = (e) => {
+            document.getElementById('response9').innerHTML = Http.responseText;
+        }
+
+    }
+
+	function Elaborate2() {
+        const Http = new XMLHttpRequest();
+        const albumid = document.getElementById('albumidEU2').value;
+        const email = document.getElementById('emailEU2').value;
+        const url = "/api/elaborateUseCase2?albumid=" + albumid + "&email=" +email;
+        Http.open("GET", url);
+        Http.send();
+		Http.onreadystatechange = (e) => {
+				document.getElementById('response6').innerHTML = Http.responseText;
+		}
+		
+		/*if (Http.responseText != "Song not found") {
+			document.getElementById("userDiv").style.display = "block";
+		}*/
+    }
+	
+	function transferToMongo() {
+		const Http = new XMLHttpRequest();
+        const url = "/api/transferToMongo";
+        Http.open("GET", url);
+        Http.send();
+		Http.onreadystatechange = (e) => {
+				document.getElementById('response').innerHTML = Http.responseText;
+		}
+	}
+	
+    function queryServer2(responseNr) {
+        const Http = new XMLHttpRequest();
+        const path = document.getElementById('path').value;
+        const url = "/api/";
+        Http.open("GET", url + path);
+        Http.send();
+        Http.onreadystatechange = (e) => {
+            document.getElementById('response' + responseNr).innerHTML = Http.responseText;
+        }
+    }
+	
+	function queryServer3(responseNr) {
+        const Http = new XMLHttpRequest();
+        const path = document.getElementById('path2').value;
+        const url = "/api/";
+        Http.open("GET", url + path);
+        Http.send();
+        Http.onreadystatechange = (e) => {
+            document.getElementById('response' + responseNr).innerHTML = Http.responseText;
+        }
+    }
+	
+	function getPlaylists() {
+        const Http = new XMLHttpRequest();
+        const userEmail = document.getElementById('userEmail').value;
+        const url = "/api/userEmail?email=" + userEmail;
+        Http.open("GET", url);
+        Http.send();
+        Http.onreadystatechange = (e) => {
+            document.getElementById('response4').innerHTML = Http.responseText;
+        }
+    }
+	
+	function queryServer(path) {
+        const Http = new XMLHttpRequest();
+        const url = "/api/";
+        Http.open("GET", url + path);
+        Http.send();
+        Http.onreadystatechange = (e) => {
+            document.getElementById('response').innerHTML = Http.responseText;
+        }
+    }
+
+    function searchSong() {
+        const Http = new XMLHttpRequest();
+        const albumid = document.getElementById('albumid').value;
+        const tracknr = document.getElementById('tracknr').value;
+        const url = "/api/song?tracknr=" + tracknr + "&albumid=" +albumid;
+        Http.open("GET", url);
+        Http.send();
+		Http.onreadystatechange = (e) => {
+				document.getElementById('response3').innerHTML = Http.responseText;
+		}
+		
+		/*if (Http.responseText != "Song not found") {
+			document.getElementById("userDiv").style.display = "block";
+		}*/
+    }
+
+
+    function addSongToPlaylist() {
+        const Http = new XMLHttpRequest();
+        const albumid = document.getElementById('albumidPL').value;
+        const tracknr = document.getElementById('tracknrPL').value;
+		const playlist = document.getElementById('playlistIdPL').value;
+        const url = "/api/addSongToPlaylist?tracknr=" + tracknr + "&albumid=" +albumid + "&playlist=" +playlist;
+        Http.open("GET", url);
+        Http.send();
+		Http.onreadystatechange = (e) => {
+				document.getElementById('response5').innerHTML = Http.responseText;
+		}
+    }
+	
+	
+	function openTab(evt, tab) {
+	  // Declare all variables
+	  var i, tabcontent, tablinks;
+
+	  // Get all elements with class="tabcontent" and hide them
+	  tabcontent = document.getElementsByClassName("tabcontent");
+	  for (i = 0; i < tabcontent.length; i++) {
+	    tabcontent[i].style.display = "none";
+	  }
+
+	  // Get all elements with class="tablinks" and remove the class "active"
+	  tablinks = document.getElementsByClassName("tablinks");
+	  for (i = 0; i < tablinks.length; i++) {
+	    tablinks[i].className = tablinks[i].className.replace(" active", "");
+	  }
+
+	  // Show the current tab, and add an "active" class to the button that opened the tab
+	  document.getElementById(tab).style.display = "block";
+	  evt.currentTarget.className += " active";
+	  
+	  //document.getElementById("userDiv").style.display = "none";
+
+	} 
+document.getElementById("defaultOpen").click();
+    </script>
+  
+  </body>
+
+</html>
