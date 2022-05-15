@@ -23,7 +23,7 @@ This project was part of my thesis on "Interpretable representation of latent va
 
 
 ## TimeSeriesForecasting
-I wanted to find out if state-of-the-art algorithms outperform baseline algorithms such as XGBoost in a multivariate time series forecasting task. Car traffic is predicted using variables such as weather and holidays. The results can be seen here:
+I wanted to find out if neural network state-of-the-art algorithms outperform baseline algorithms such as XGBoost in a multivariate time series forecasting task. Car traffic is predicted using variables such as weather and holidays. The results can be seen here:
 | Method  | RMSE | MAE | 
 | ------------- | ------------- | -------------- |
 | Linear Regression | 0.3735 | 0.2478 |
