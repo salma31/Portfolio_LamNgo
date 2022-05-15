@@ -18,8 +18,9 @@ This project was part of my thesis on "Interpretable representation of latent va
 
 
 
-<a name="myfootnote1">1</a>:https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5197422
-<a name="myfootnote2">2</a>:https://competitions.codalab.org/competitions/25449
+<a name="myfootnote1">1</a>. https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5197422
+
+<a name="myfootnote2">2</a>. https://competitions.codalab.org/competitions/25449
 
 
 
