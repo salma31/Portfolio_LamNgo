@@ -9,21 +9,24 @@ This project uses docker, python (including flask), SQL and MongoDB. The fronten
 
 
 ## MatrixFactorization
-This project was part of my thesis on "Interpretable representation of latent variables in matrix factorizations". It uses matrix factorization [^1] to predict students' answers to mathematical questions [^2]. Pytorch was used for the implementation. 
+This project was part of my thesis on "Interpretable representation of latent variables in matrix factorizations". It uses matrix factorization <sup>[1](#myfootnote1)</sup> to predict students' answers to mathematical questions <sup>[2](#myfootnote2)</sup>. Pytorch was used for the implementation. 
 
 
 ## TimeSeriesForecasting
 
-<sup>[1](#myfootnote1)</sup>
-
-<a name="myfootnote1">1</a>:sasa
 
 
 
 
+<a name="myfootnote1">1</a>:https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5197422
+<a name="myfootnote2">2</a>:https://competitions.codalab.org/competitions/25449
 
 
 
 
-[^1] https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5197422
-[^2] https://competitions.codalab.org/competitions/25449
+
+
+
+
+
+
