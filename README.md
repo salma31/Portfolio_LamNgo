@@ -15,7 +15,7 @@ Dear potential employer,
 this repository contains a few selected projects that demonstrate my programming ability in data science.
 
 ## DockerDatabase
-In this project I used docker, python (including flask), SQL and MongoDB. The frontend is built with Javascript and HTML/CSS (focus was on the backend components though, website looks unpolished). Random data is generated and inserted into a SQL database. One can modify this data by adding new entries through the website. The data can then be transferred to a MongoDB database. The programme is containerized with Docker.  The goal of this project was to combine all these different tools.
+In this project, I used docker, python (including flask), SQL and MongoDB. The frontend is built with Javascript and HTML/CSS (focus was on the backend components though, website looks unpolished). Random data is generated and inserted into a SQL database. One can modify this data by adding new entries through the website. The data can then be transferred to a MongoDB database. The programme is containerized with Docker.  The goal of this project was to combine all these different tools.
 
 
 ## MatrixFactorization
