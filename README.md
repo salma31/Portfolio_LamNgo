@@ -1,1 +1,3 @@
-# My portfolio - selected projects - Lam Ngo
+# Selected projects - Lam Ngo
+
+## 
