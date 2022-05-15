@@ -1,5 +1,14 @@
 # Selected projects - Lam Ngo
 
+## Table of Contents
+
+- [Introduction](#Introduction)
+- [DockerDatabase](#DockerDatabase)
+- [MatrixFactorization](#MatrixFactorization)
+- [TimeSeriesForecasting](#TimeSeriesForecasting)
+- [References](#references)
+
+
 ## Introduction
 Dear potential employer,
 this repository contains a few selected projects that demonstrate my programming ability in data science.
@@ -17,7 +26,7 @@ This project was part of my thesis on "Interpretable representation of latent va
 
 
 
-
+## References
 <a name="myfootnote1">1</a>. https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5197422
 
 <a name="myfootnote2">2</a>. https://competitions.codalab.org/competitions/25449
