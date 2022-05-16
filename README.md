@@ -34,6 +34,8 @@ I wanted to find out if neural network state-of-the-art algorithms outperform ba
 | Informer<sup>[4](#myfootnote4)</sup> | 0.1926 | 0.1302 |
 
 ## 4_ProteinClassification
+This is a project that uses Keras. The architecture that was used is from this website<sup>[5](#myfootnote5)</sup>. There, it was used to to predict the protein family accession  given a sequence of amino acids. I adjusted that architecture to do a similar classification task. More precisely, if a protein shows antibiotic resistance. If a sequence does, the model predicts which antibiotics family is concerned. This is a multi-class classification task.  
+
 
 ## References
 <a name="myfootnote1">1</a>. https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5197422
