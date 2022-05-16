@@ -3,10 +3,10 @@
 ## Table of Contents
 
 - [Introduction](#Introduction)
-- [DockerDatabase](#1_DockerDatabase)
-- [MatrixFactorization](#2_MatrixFactorization)
-- [TimeSeriesForecasting](#3_TimeSeriesForecasting)
-- [ProteinClassification](#4_ProteinClassification)
+- [1_DockerDatabase](#1_DockerDatabase)
+- [2_MatrixFactorization](#2_MatrixFactorization)
+- [3_TimeSeriesForecasting](#3_TimeSeriesForecasting)
+- [4_ProteinClassification](#4_ProteinClassification)
 - [References](#references)
 
 
