@@ -20,7 +20,7 @@ In this project, I used docker, python (including flask), SQL and MongoDB. The f
 
 
 ## 2_MatrixFactorization
-This project was part of my thesis "Interpretable representation of latent variables in matrix factorizations". It uses matrix factorization<sup>[1](#myfootnote1)</sup> to predict students' answers to mathematical questions<sup>[2](#myfootnote2)</sup>. Pytorch was used for the implementation. 
+This programme was part of my thesis "Interpretable representation of latent variables in matrix factorizations". It uses matrix factorization<sup>[1](#myfootnote1)</sup> to predict students' answers to mathematical questions<sup>[2](#myfootnote2)</sup>. Pytorch was used for the implementation. 
 
 
 ## 3_TimeSeriesForecasting
